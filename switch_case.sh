@@ -8,21 +8,35 @@ Fun_Hellow() #sample hellow world
 #fun_update_upgrade	
 }
 
-
+#==========================================================================================================================================
 Fun_Update_Upgrade() 
 {
-<<comment1
-	 theis block of code is used to update and upgrade the system to latest version of ubuntu 
-comment1
-	
-	sudo apt-get update && sudo apt-get upgrade &
-}
+# theis block of code is used to update and upgrade the system to latest version of ubuntu 
 
+	sudo apt-get update 
+	sudo do-release-upgrade -d
+}
+#===============================================================================================================================================
+
+Fun_install_Package()
+{
+# theis block of code is used to check latest version of package and install  in system 
+	
+	sudo apt-get remove vlc -y
+}	
+#===============================================================================================================================================
+Fun_Remove_Package()
+{
+	# theis block of code is used to Remove packages from system 
+	
+	sudo apt-get remove vlc -y
+
+} 
+
+#=================================================================================================================================================
 Fun_Systen_Check()   
 {
-<<comment1
-	 theis block of code is used to check where the system is 64 bit and it has ubuntu operating system
-comment1
+# theis block of code is used to check where the system is 64 bit and it has ubuntu operating system
 
 
 	system=$(uname -m)
@@ -39,6 +53,7 @@ comment1
 
 }
 
+#====================================================================================================================================================
 fn_clear()
 {
 
@@ -75,9 +90,9 @@ case $Num in
 	
 	2)	Fun_Update_Upgrade ;;
 			
-	3)	echo	"2-> Install required packages to build Android source";;
-		
-	4)	echo	"3-> Sync the Android source";;
+	3)	Fun_install_Package ;;	
+	
+	4)	Fun_Remove_Package ;;
 	
 	5)	echo	"4-> Build Android source and generate .img files";;
 	
